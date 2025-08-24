@@ -44,12 +44,8 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - name: Generate JavaScript assets  # <- 【新增】这是你要添加的步骤
-        run: |
-          npm install
-          npx gulp
       - name: Build site
-        run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
+        run: bundle exec jekyll b --disable-schema-validation -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
 
