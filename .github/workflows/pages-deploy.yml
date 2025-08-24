@@ -46,7 +46,7 @@ jobs:
           bundler-cache: true
       - name: Generate JavaScript assets  # <- 【新增】这是你要添加的步骤
         run: |
-          npm ci
+          npm install
           npx gulp
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
